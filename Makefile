@@ -16,16 +16,32 @@ run: build
 	@"$(OUT)"
 
 test: build
-	@test -s "$(P)/entrada.txt" || (echo "Completa $(P)/entrada.txt primero"; exit 1)
-	@test -s "$(P)/esperado.txt" || (echo "Completa $(P)/esperado.txt primero"; exit 1)
-	@"$(OUT)" < "$(P)/entrada.txt" > "build/salida.txt"
-	@diff -u "$(P)/esperado.txt" "build/salida.txt" && echo "Prueba OK"
+	@set -eu; \
+	found=0; passed=0; failed=0; \
+	for input in "$(P)"/tests/*.in; do \
+	  [ -f "$$input" ] || continue; \
+	  found=1; \
+	  expected="$${input%.in}.out"; \
+	  name=$$(basename "$${input%.in}"); \
+	  if [ ! -f "$$expected" ]; then \
+	    echo "FALTA salida esperada: $$expected"; failed=$$((failed+1)); continue; \
+	  fi; \
+	  actual="build/$$(printf '%s' '$(P)' | tr '/' '_')_$${name}.actual"; \
+	  if "$(OUT)" < "$$input" > "$$actual" && diff -u "$$expected" "$$actual"; then \
+	    echo "OK: $$name"; passed=$$((passed+1)); \
+	  else \
+	    echo "ERROR: $$name"; failed=$$((failed+1)); \
+	  fi; \
+	done; \
+	if [ "$$found" -eq 0 ]; then echo "No hay archivos .in en $(P)/tests/"; exit 1; fi; \
+	echo "Resultado: $$passed correctos, $$failed fallidos"; \
+	[ "$$failed" -eq 0 ]
 
 clean:
 	rm -rf build
 
 help:
 	@echo 'make build P=tarea-02/problema-01'
-	@echo 'make run P=tarea-02/problema-01   (escribe datos por stdin)'
-	@echo 'make test P=tarea-02/problema-01  (entrada.txt vs esperado.txt)'
+	@echo 'make run P=tarea-02/problema-01'
+	@echo 'make test P=tarea-02/problema-01  (todos los tests/*.in y *.out)'
 	@echo 'make clean'

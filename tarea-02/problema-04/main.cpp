@@ -2,14 +2,15 @@
 using namespace std;
 
 /*
- * Autor: Luis Isea | 19-10175
- * Problema: [nombre y enlace]
+ * Autor: Luis Isea | Carnet: 19-10175
+ * Problema: 101A - Homework
+ * Enlace: https://codeforces.com/contest/101/problem/A
  *
  * Idea:
- * [Explicar la estrategia antes de implementarla]
+ * [Escribir aqui la estrategia propia]
  *
- * Por qué funciona:
- * [Justificación de corrección/optimalidad]
+ * Por que funciona y por que es optima:
+ * [Explicar la correccion y justificar la estrategia]
  *
  * Complejidad:
  * Tiempo: O(?) | Memoria: O(?)
@@ -19,6 +20,6 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    // Implementar aquí.
+    // Implementar aqui.
     return 0;
 }

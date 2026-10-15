@@ -1,6 +1,5 @@
 build/
 *.o
-*.out
 *.exe
 .vscode/*.log
 .DS_Store
