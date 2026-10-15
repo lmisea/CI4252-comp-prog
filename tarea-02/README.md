@@ -10,7 +10,7 @@
 | 1   | [1230B — Ania and Minimizing](https://codeforces.com/contest/1230/problem/B) | `problema-01/` | ✅ Accepted en Codeforces |
 | 2   | [985C — Liebig's Barrels](https://codeforces.com/contest/985/problem/C)      | `problema-02/` | ✅ Accepted en Codeforces |
 | 3   | [492C — Vanya and Exams](https://codeforces.com/contest/492/problem/C)       | `problema-03/` | ✅ Accepted en Codeforces |
-| 4   | [101A — Homework](https://codeforces.com/contest/101/problem/A)              | `problema-04/` | ✅ Accepted en Codeforces              |
+| 4   | [101A — Homework](https://codeforces.com/contest/101/problem/A)              | `problema-04/` | ✅ Accepted en Codeforces |
 
 ## Progreso
 
