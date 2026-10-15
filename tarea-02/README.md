@@ -1,15 +1,24 @@
-# Tarea 2 — CI4252 Programación Competitiva
+# Tarea 2 — Programación competitiva
 
 **Luis Isea — 19-10175**
+**Lenguaje:** C++17
 
-| Carpeta       | Problema                    | Enlace                                        | Estado       |
-| ------------- | --------------------------- | --------------------------------------------- | ------------ |
-| `problema-01` | 1230B — Ania and Minimizing | https://codeforces.com/contest/1230/problem/B | Por resolver |
-| `problema-02` | 985C — Liebig's Barrels     | https://codeforces.com/contest/985/problem/C  | Por resolver |
-| `problema-03` | 492C — Vanya and Exams      | https://codeforces.com/contest/492/problem/C  | Por resolver |
-| `problema-04` | 101A — Homework             | https://codeforces.com/contest/101/problem/A  | Por resolver |
+## Problemas
 
-Cada carpeta contiene `main.cpp` (plantilla vacía) y una carpeta `tests/` con los ejemplos oficiales numerados: `01.in`, `01.out`, etc.
+| #   | Problema                                                                     | Carpeta        | Estado                   |
+| --- | ---------------------------------------------------------------------------- | -------------- | ------------------------ |
+| 1   | [1230B — Ania and Minimizing](https://codeforces.com/contest/1230/problem/B) | `problema-01/` | ✅ Accepted en Codeforces |
+| 2   | [985C — Liebig's Barrels](https://codeforces.com/contest/985/problem/C)      | `problema-02/` | ⏳ Pendiente              |
+| 3   | [492C — Vanya and Exams](https://codeforces.com/contest/492/problem/C)       | `problema-03/` | ⏳ Pendiente              |
+| 4   | [101A — Homework](https://codeforces.com/contest/101/problem/A)              | `problema-04/` | ⏳ Pendiente              |
+
+## Progreso
+
+**1 de 4 problemas aceptados.**
+
+- **1230B:** envío [394750425](https://codeforces.com/contest/1230/submission/394750425) — Accepted (C++17, 46 ms). Casos de prueba locales: 3/3.
+
+## Ejecutar las soluciones
 
 Desde la raíz del repositorio:
 
@@ -19,8 +28,6 @@ make test P=tarea-02/problema-01
 make run P=tarea-02/problema-01
 ```
 
-Para agregar otro caso, crea `tests/04.in` y `tests/04.out` con el mismo número (elige el siguiente número disponible). `make test` recorre **todos** los archivos `.in` y comprueba su salida esperada con `diff`. Las plantillas están vacías, por lo que los tests no pasarán hasta implementar las soluciones.
+Cada problema incluye `main.cpp` y una carpeta `tests/` con pares de archivos `01.in` / `01.out`, `02.in` / `02.out`, etc.
 
-**Ojo con el problema 101A (Homework):** Codeforces permite distintas respuestas correctas. `make test` compara contra una respuesta de ejemplo específica, de modo que un `ERROR` puede ser un falso negativo si tu subsecuencia es diferente pero válida. En ese caso comprueba las condiciones del enunciado o el resultado enviado a Codeforces.
-
-Los ejemplos no sustituyen las pruebas de casos límite ni el veredicto de Codeforces. La tarea pide resolver individualmente, con comentarios explicando idea, corrección y optimalidad.
+Las soluciones incluyen comentarios sobre la idea utilizada, la justificación de su corrección y su complejidad.
