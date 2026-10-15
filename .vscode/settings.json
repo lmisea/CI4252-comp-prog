@@ -1,0 +1,5 @@
+{
+  "files.associations": {"*.cpp": "cpp"},
+  "editor.formatOnSave": false,
+  "C_Cpp.default.cppStandard": "c++17"
+}
