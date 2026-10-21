@@ -3,6 +3,8 @@
   "editor.formatOnSave": false,
   "C_Cpp.default.cppStandard": "c++17",
   "cSpell.words": [
+    "ANARC",
+    "Codeforces",
     "examenes",
     "subsecuencia",
     "Vanya"

@@ -1,4 +1,5 @@
 build/
+tarea-03/build/
 *.o
 *.exe
 .vscode/*.log
