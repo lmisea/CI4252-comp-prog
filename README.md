@@ -10,7 +10,7 @@ Repositorio para organizar los ejercicios de la electiva, documentar las estrate
 | Tarea                         | Estado                        | Problemas                                                                                                                                                                                                                   |
 | ----------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Tarea 2](tarea-02/README.md) | ✅ 4/4 aceptados en Codeforces | [1230B](https://codeforces.com/contest/1230/problem/B) · [985C](https://codeforces.com/contest/985/problem/C) · [492C](https://codeforces.com/contest/492/problem/C) · [101A](https://codeforces.com/contest/101/problem/A) |
-| [Tarea 3](tarea-03/README.md) | 🚧 En desarrollo               | [ANARC09A — Seinfeld](https://www.spoj.com/problems/ANARC09A/) · DP Bottom-Up, DP Top-Down y Greedy                                                                                                                         |
+| [Tarea 3](tarea-03/README.md) | 🟡 Greedy aceptado (1/3)       | [ANARC09A — Seinfeld](https://www.spoj.com/problems/ANARC09A/) · DP Bottom-Up, DP Top-Down y Greedy                                                                                                                         |
 
 ## Estructura del repositorio
 
@@ -33,22 +33,21 @@ CI4252-comp-prog/
 │   └── problema-04/
 └── tarea-03/
     ├── README.md
-    └── anarc09a/
-        ├── Makefile
-        ├── bottom_up.cpp
-        ├── top_down.cpp
-        ├── greedy.cpp
-        └── tests/
-            ├── 01.in
-            ├── 01.out
-            ├── 02.in
-            ├── 02.out
-            └── ...
+    ├── Makefile
+    ├── bottom_up.cpp
+    ├── top_down.cpp
+    ├── greedy.cpp
+    └── tests/
+        ├── 01.in
+        ├── 01.out
+        ├── 02.in
+        ├── 02.out
+        └── ...
 ```
 
 En la **Tarea 2**, cada carpeta `problema-XX/` contiene una solución en `main.cpp` y casos de prueba en `tests/`. Los pares `01.in`/`01.out`, `02.in`/`02.out`, etc. representan entradas y salidas esperadas.
 
-En la **Tarea 3**, el mismo problema se resuelve de tres formas independientes (`bottom_up.cpp`, `top_down.cpp` y `greedy.cpp`). Todas comparten los casos de prueba de `tarea-03/anarc09a/tests/` y se gestionan mediante un Makefile propio.
+En la **Tarea 3**, **Greedy ya fue aceptado por SPOJ** ([envío 36031451](https://www.spoj.com/status/ANARC09A,lmisea/)); quedan pendientes DP Bottom-Up y DP Top-Down. El mismo problema se resuelve de tres formas independientes (`bottom_up.cpp`, `top_down.cpp` y `greedy.cpp`). Todas comparten los casos de prueba de `tarea-03/tests/` y se gestionan mediante un Makefile propio.
 
 `plantillas/main.cpp` sirve para iniciar nuevos ejercicios. Las carpetas `build/` contienen ejecutables temporales y no deben subirse a Git.
 
@@ -80,19 +79,19 @@ Para ejecutar manualmente un caso concreto:
 Ejecutar desde la raíz del repositorio:
 
 ```bash
-make -C tarea-03/anarc09a all              # Compilar los tres enfoques
-make -C tarea-03/anarc09a test-bottom_up   # Probar DP Bottom-Up
-make -C tarea-03/anarc09a test-top_down    # Probar DP Top-Down
-make -C tarea-03/anarc09a test-greedy      # Probar Greedy
-make -C tarea-03/anarc09a test             # Probar los tres enfoques
-make -C tarea-03/anarc09a clean            # Eliminar sus ejecutables
+make -C tarea-03 all              # Compilar los tres enfoques
+make -C tarea-03 test-bottom_up   # Probar DP Bottom-Up
+make -C tarea-03 test-top_down    # Probar DP Top-Down
+make -C tarea-03 test-greedy      # Probar Greedy
+make -C tarea-03 test             # Probar los tres enfoques
+make -C tarea-03 clean            # Eliminar sus ejecutables
 ```
 
 Para ejecutar manualmente un enfoque con un archivo de entrada:
 
 ```bash
-make -C tarea-03/anarc09a all
-./tarea-03/anarc09a/build/greedy < tarea-03/anarc09a/tests/01.in
+make -C tarea-03 all
+./tarea-03/build/greedy < tarea-03/tests/01.in
 ```
 
 También puedes sustituir `greedy` por `bottom_up` o `top_down`.
