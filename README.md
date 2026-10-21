@@ -7,10 +7,10 @@ Repositorio para organizar los ejercicios de la electiva, documentar las estrate
 
 ## Tareas
 
-| Tarea                         | Estado                        | Problemas                                                                                                                                                                                                                   |
-| ----------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Tarea 2](tarea-02/README.md) | ✅ 4/4 aceptados en Codeforces | [1230B](https://codeforces.com/contest/1230/problem/B) · [985C](https://codeforces.com/contest/985/problem/C) · [492C](https://codeforces.com/contest/492/problem/C) · [101A](https://codeforces.com/contest/101/problem/A) |
-| [Tarea 3](tarea-03/README.md) | 🟡 Greedy aceptado (1/3)       | [ANARC09A — Seinfeld](https://www.spoj.com/problems/ANARC09A/) · DP Bottom-Up, DP Top-Down y Greedy                                                                                                                         |
+| Tarea                         | Estado                           | Problemas                                                                                                                                                                                                                   |
+| ----------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Tarea 2](tarea-02/README.md) | ✅ 4/4 aceptados en Codeforces    | [1230B](https://codeforces.com/contest/1230/problem/B) · [985C](https://codeforces.com/contest/985/problem/C) · [492C](https://codeforces.com/contest/492/problem/C) · [101A](https://codeforces.com/contest/101/problem/A) |
+| [Tarea 3](tarea-03/README.md) | 🚧 2/3 enfoques aceptados en SPOJ | [ANARC09A — Seinfeld](https://www.spoj.com/problems/ANARC09A/) · ✅ Greedy · ✅ DP Bottom-Up · ⏳ DP Top-Down                                                                                                                  |
 
 ## Estructura del repositorio
 
@@ -47,7 +47,7 @@ CI4252-comp-prog/
 
 En la **Tarea 2**, cada carpeta `problema-XX/` contiene una solución en `main.cpp` y casos de prueba en `tests/`. Los pares `01.in`/`01.out`, `02.in`/`02.out`, etc. representan entradas y salidas esperadas.
 
-En la **Tarea 3**, **Greedy ya fue aceptado por SPOJ** ([envío 36031451](https://www.spoj.com/status/ANARC09A,lmisea/)); quedan pendientes DP Bottom-Up y DP Top-Down. El mismo problema se resuelve de tres formas independientes (`bottom_up.cpp`, `top_down.cpp` y `greedy.cpp`). Todas comparten los casos de prueba de `tarea-03/tests/` y se gestionan mediante un Makefile propio.
+En la **Tarea 3**, el mismo problema se resuelve de tres formas independientes (`bottom_up.cpp`, `top_down.cpp` y `greedy.cpp`). Todas comparten los casos de prueba de `tarea-03/tests/` y se gestionan mediante un Makefile propio, directamente en `tarea-03/`.
 
 `plantillas/main.cpp` sirve para iniciar nuevos ejercicios. Las carpetas `build/` contienen ejecutables temporales y no deben subirse a Git.
 
@@ -59,7 +59,7 @@ sudo pacman -S --needed gcc make git unzip
 
 ## Compilar y probar — Tarea 2
 
-Ejecutar desde la raíz del repositorio, cambiando `P` por la ruta del problema:
+Desde la raíz del repositorio, cambiando `P` por la ruta del problema:
 
 ```bash
 make build P=tarea-02/problema-01  # Compilar con C++17
@@ -76,7 +76,7 @@ Para ejecutar manualmente un caso concreto:
 
 ## Compilar y probar — Tarea 3
 
-Ejecutar desde la raíz del repositorio:
+Desde la raíz del repositorio:
 
 ```bash
 make -C tarea-03 all              # Compilar los tres enfoques
@@ -91,11 +91,11 @@ Para ejecutar manualmente un enfoque con un archivo de entrada:
 
 ```bash
 make -C tarea-03 all
-./tarea-03/build/greedy < tarea-03/tests/01.in
+./tarea-03/build/bottom_up < tarea-03/tests/01.in
 ```
 
-También puedes sustituir `greedy` por `bottom_up` o `top_down`.
+Puedes sustituir `bottom_up` por `greedy` o `top_down`.
 
-En ambos sistemas, las pruebas comparan la salida del programa con el archivo `.out` correspondiente. Los espacios y saltos de línea pueden influir en la comparación. Algunos problemas admiten varias salidas válidas; en esos casos, una comparación textual exacta no sustituye al veredicto del juez.
+Las pruebas comparan la salida del programa con el archivo `.out` correspondiente. Los espacios y saltos de línea pueden influir en la comparación. Algunos problemas admiten varias salidas válidas; en esos casos, una comparación textual exacta no sustituye al veredicto del juez.
 
-Cada solución incluye comentarios sobre la idea, su justificación y su complejidad. La Tarea 3 se entregará en un ZIP con los tres códigos cuando estén terminados y comprobados.
+Cada solución incluye comentarios sobre su idea, justificación y complejidad. La Tarea 3 se entregará en un ZIP con los tres códigos cuando estén terminados y comprobados.
