@@ -64,4 +64,4 @@ Los pares `tests/XX.in` y `tests/XX.out` permiten comparar las salidas esperadas
 
 ## Entrega
 
-Los tres enfoques están aceptados en SPOJ. **Pendiente únicamente preparar el ZIP solicitado por el profesor**, cuando se decida hacer la entrega.
+Los tres enfoques están aceptados en SPOJ. La entrega se empaqueta en un ZIP con los tres archivos `.cpp`, este README, el Makefile y la carpeta `tests/`.
