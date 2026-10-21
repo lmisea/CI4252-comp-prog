@@ -1,49 +1,67 @@
 # Tarea 3 — ANARC09A: Seinfeld
 
 **Luis Isea — 19-10175**
-**Juez:** [SPOJ ANARC09A](https://www.spoj.com/problems/ANARC09A/)
-**Lenguaje:** C++17
+**Problema:** [SPOJ ANARC09A — Seinfeld](https://www.spoj.com/problems/ANARC09A/)
+**Lenguaje de desarrollo:** C++17
 
 ## Enfoques requeridos
 
-| Archivo         | Estrategia                      | Estado      | Envío                                                    |
-| --------------- | ------------------------------- | ----------- | -------------------------------------------------------- |
-| `greedy.cpp`    | Greedy, balance de llaves       | ✅ Accepted  | [36031451](https://www.spoj.com/status/ANARC09A,lmisea/) |
-| `bottom_up.cpp` | Programación dinámica Bottom-Up | ✅ Accepted  | [36031515](https://www.spoj.com/status/ANARC09A,lmisea/) |
-| `top_down.cpp`  | Programación dinámica Top-Down  | ⏳ Pendiente | —                                                        |
+| Enfoque      | Archivo         | Estado     | Envío SPOJ                                               |
+| ------------ | --------------- | ---------- | -------------------------------------------------------- |
+| Greedy       | `greedy.cpp`    | ✅ Accepted | [36031451](https://www.spoj.com/status/ANARC09A,lmisea/) |
+| DP Bottom-Up | `bottom_up.cpp` | ✅ Accepted | [36031515](https://www.spoj.com/status/ANARC09A,lmisea/) |
+| DP Top-Down  | `top_down.cpp`  | ✅ Accepted | [36031567](https://www.spoj.com/status/ANARC09A,lmisea/) |
 
-**Progreso: 2 de 3 enfoques aceptados.**
+**Progreso: 3 de 3 enfoques aceptados (100 %).**
 
-- **Greedy:** 3/3 archivos de prueba locales correctos. Envío `36031451` aceptado en SPOJ.
-- **Bottom-Up:** envío `36031515` aceptado en SPOJ (0.31 s, 19 MB, según la captura del resultado).
-- **Top-Down:** pendiente de implementar y comprobar.
+## Estrategias y complejidades
 
-Cada código debe explicar su idea, por qué funciona y su complejidad.
+- **Greedy:** recorre la cadena manteniendo un balance de llaves abiertas; corrige los cierres que dejarían un balance negativo y, al terminar, las aperturas restantes. Tiempo `O(n)` y memoria auxiliar `O(1)`.
+- **DP Bottom-Up:** construye iterativamente los costos mínimos por posición y balance válido. Tiempo `O(n²)` y memoria `O(n²)`.
+- **DP Top-Down:** calcula los mismos tipos de estados mediante recursión y memoización. Tiempo `O(n²)` y memoria `O(n²)`.
+
+Los tres programas resuelven el mismo problema y comparten los casos de prueba.
 
 ## Estructura
 
-Los tres archivos `.cpp`, el `Makefile` y este `README.md` están directamente en `tarea-03/`; los casos compartidos están en `tarea-03/tests/`.
+```text
+tarea-03/
+├── README.md
+├── Makefile
+├── greedy.cpp
+├── bottom_up.cpp
+├── top_down.cpp
+└── tests/
+    ├── 01.in
+    ├── 01.out
+    ├── 02.in
+    ├── 02.out
+    ├── 03.in
+    └── 03.out
+```
 
-## Comandos
+## Compilar y probar
 
 Desde la raíz del repositorio:
 
 ```bash
 make -C tarea-03 all
+make -C tarea-03 test-greedy
 make -C tarea-03 test-bottom_up
 make -C tarea-03 test-top_down
-make -C tarea-03 test-greedy
 make -C tarea-03 test
 make -C tarea-03 clean
 ```
 
-Para ejecutar un caso concreto:
+Para ejecutar un caso manualmente:
 
 ```bash
 make -C tarea-03 all
-./tarea-03/build/bottom_up < tarea-03/tests/01.in
+./tarea-03/build/top_down < tarea-03/tests/01.in
 ```
 
-Los casos de prueba usan pares `tests/XX.in` y `tests/XX.out`. Cada `.in` puede contener varias cadenas terminadas en una línea con guiones; la salida numera los casos desde 1.
+Los pares `tests/XX.in` y `tests/XX.out` permiten comparar las salidas esperadas. Cada archivo de entrada puede contener varios casos; una línea que empieza por `-` marca el final de la entrada, y la numeración de casos comienza en 1.
 
-**Entrega:** cuando los tres enfoques estén finalizados, empaquetar los archivos `.cpp` en el ZIP solicitado por el profesor.
+## Entrega
+
+Los tres enfoques están aceptados en SPOJ. **Pendiente únicamente preparar el ZIP solicitado por el profesor**, cuando se decida hacer la entrega.
