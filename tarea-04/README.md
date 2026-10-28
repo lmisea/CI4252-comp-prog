@@ -5,19 +5,19 @@
 
 ## Problemas
 
-| Carpeta        | Problema                                                                                                                       | Estado                                                       |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| `problema-01/` | [UVa 10104 — Euclid Problem](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1045) | ✅ Accepted en [VJudge](https://vjudge.net/problem/UVA-10104) |
-| `problema-02/` | [SPOJ PRIME1 — Prime Generator](https://www.spoj.com/problems/PRIME1/)                                                         | ⏳ Pendiente                                                  |
+| Carpeta        | Problema                                                               | Estado               |
+| -------------- | ---------------------------------------------------------------------- | -------------------- |
+| `problema-01/` | [UVa 10104 — Euclid Problem](https://vjudge.net/problem/UVA-10104)     | ✅ Accepted en VJudge |
+| `problema-02/` | [SPOJ PRIME1 — Prime Generator](https://www.spoj.com/problems/PRIME1/) | ✅ Accepted en SPOJ   |
 
-**Progreso: 1 de 2 problemas aceptados (50 %).**
+**Progreso: 2 de 2 problemas aceptados (100 %).**
 
 ### Envíos y pruebas
 
-- **UVa 10104:** enviado mediante VJudge porque se presentaron dificultades para iniciar sesión directamente en UVa Online Judge. **Envío #73799674 — Accepted (50 ms)**, el 28 de octubre de 2026. Pruebas locales: **3/3** correctas.
-- **SPOJ PRIME1:** pendiente de implementación y envío.
+- **UVa 10104:** enviado mediante [VJudge](https://vjudge.net/problem/UVA-10104) ante dificultades para iniciar sesión en UVa Online Judge. **Envío #73799674 — Accepted (50 ms)**, 28 de octubre de 2026. Pruebas locales: **3/3** correctas.
+- **SPOJ PRIME1:** [Prime Generator](https://www.spoj.com/problems/PRIME1/). **Envío #36048257 — Accepted (0.02 s, 5.2 MB)**, 28 de octubre de 2026. Incluye cinco pares de archivos de prueba locales.
 
-> **Consigna del profesor:** resolver la tarea sin utilizar IA. Las soluciones deben incluir su razonamiento y poder explicarse.
+> **Nota sobre la consigna:** el profesor indicó que la Tarea 4 debía resolverse sin utilizar IA y que las soluciones debían poder explicarse y justificarse.
 
 ## Estructura
 
@@ -66,20 +66,20 @@ Para ejecutar un caso manualmente después de compilar:
 ./build/tarea-04_problema-02 < tarea-04/problema-02/tests/01.in
 ```
 
-Los archivos `.in` contienen las entradas de prueba y los `.out` sus salidas esperadas. `make test` comprueba la coincidencia textual mediante `diff`.
+Los archivos `.in` contienen las entradas de prueba y los `.out` sus salidas esperadas. `make test` compara la salida textual mediante `diff`.
 
-## Particularidades de los problemas
+## Estrategias y particularidades
 
-**UVa 10104 — Euclid Problem**
+### UVa 10104 — Euclid Problem
 
-- Leer pares de enteros `A B` hasta llegar al fin del archivo (EOF).
-- Para cada par, imprimir `X Y D`, de modo que `A*X + B*Y = D` y `D = mcd(A,B)`.
-- Minimizar `|X| + |Y|`; en caso de empate, aplicar el criterio del enunciado.
-- La solución emplea el algoritmo extendido de Euclides para calcular los coeficientes de Bézout y seleccionar el par adecuado.
+- Leer pares `A B` hasta el final del archivo (EOF).
+- Obtener `X Y D`, cumpliendo `A*X + B*Y = D` con `D = mcd(A,B)`.
+- Minimizar `|X| + |Y|` y respetar el criterio de desempate del enunciado.
+- **Estrategia:** algoritmo extendido de Euclides y selección de los coeficientes de Bézout adecuados.
 
-**SPOJ PRIME1 — Prime Generator**
+### SPOJ PRIME1 — Prime Generator
 
-- La primera línea indica la cantidad de casos `t` (`t <= 10`).
-- Cada caso especifica un intervalo inclusivo `[m, n]`, con `1 <= m <= n <= 10^9` y `n - m <= 100000`.
-- Imprimir un primo por línea, con una línea vacía **entre casos**.
-- Tener en cuenta que `1` no es primo y que puede haber intervalos sin números primos.
+- Leer `t` intervalos inclusivos `[m, n]` con `1 <= m <= n <= 10^9` y `n - m <= 100000`.
+- Imprimir un primo por línea y una línea vacía entre casos de prueba.
+- Recordar que `1` no es primo y que algunos intervalos no contienen números primos.
+- **Estrategia:** criba de Eratóstenes para primos pequeños y criba segmentada para descartar compuestos dentro del intervalo sin reservar memoria hasta `n`.
