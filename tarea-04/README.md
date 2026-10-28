@@ -1,16 +1,23 @@
 # Tarea 4 — CI4252 Programación Competitiva
 
 **Estudiante:** Luis Isea · **Carnet:** 19-10175
-**Universidad:** Simón Bolívar · **Lenguaje:** C++17
+**Universidad:** Simón Bolívar · **Lenguaje de desarrollo:** C++17
 
 ## Problemas
 
-| Carpeta        | Problema                                                                                                                       | Estado    |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| `problema-01/` | [UVa 10104 — Euclid Problem](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1045) | Pendiente |
-| `problema-02/` | [SPOJ PRIME1 — Prime Generator](https://www.spoj.com/problems/PRIME1/)                                                         | Pendiente |
+| Carpeta        | Problema                                                                                                                       | Estado                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| `problema-01/` | [UVa 10104 — Euclid Problem](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1045) | ✅ Accepted en [VJudge](https://vjudge.net/problem/UVA-10104) |
+| `problema-02/` | [SPOJ PRIME1 — Prime Generator](https://www.spoj.com/problems/PRIME1/)                                                         | ⏳ Pendiente                                                  |
 
-**Nota del profesor:** esta tarea debe resolverse sin utilizar IA. Los `main.cpp` incluidos son solamente plantillas vacías; cada solución y su justificación deben desarrollarse individualmente.
+**Progreso: 1 de 2 problemas aceptados (50 %).**
+
+### Envíos y pruebas
+
+- **UVa 10104:** enviado mediante VJudge porque se presentaron dificultades para iniciar sesión directamente en UVa Online Judge. **Envío #73799674 — Accepted (50 ms)**, el 28 de octubre de 2026. Pruebas locales: **3/3** correctas.
+- **SPOJ PRIME1:** pendiente de implementación y envío.
+
+> **Consigna del profesor:** resolver la tarea sin utilizar IA. Las soluciones deben incluir su razonamiento y poder explicarse.
 
 ## Estructura
 
@@ -30,12 +37,12 @@ tarea-04/
         ├── 02.in / 02.out  (casos adicionales)
         ├── 03.in / 03.out  (casos límite)
         ├── 04.in / 04.out  (intervalo cerca de 10^9)
-    └── 05.in / 05.out  (intervalo sin primos)
+        └── 05.in / 05.out  (intervalo sin primos)
 ```
 
 ## Compilar y probar
 
-Desde la **raíz del repositorio** `CI4252-comp-prog/`, usando el Makefile principal ya existente:
+Desde la **raíz del repositorio** `CI4252-comp-prog/`, utilizando el Makefile principal:
 
 ```bash
 # UVa 10104
@@ -48,29 +55,31 @@ make build P=tarea-04/problema-02
 make test  P=tarea-04/problema-02
 make run  P=tarea-04/problema-02
 
-# Limpiar ejecutables temporales del Makefile principal
+# Eliminar ejecutables temporales
 make clean
 ```
 
-Probar un archivo manualmente después de compilar:
+Para ejecutar un caso manualmente después de compilar:
 
 ```bash
 ./build/tarea-04_problema-01 < tarea-04/problema-01/tests/01.in
 ./build/tarea-04_problema-02 < tarea-04/problema-02/tests/01.in
 ```
 
+Los archivos `.in` contienen las entradas de prueba y los `.out` sus salidas esperadas. `make test` comprueba la coincidencia textual mediante `diff`.
 
-## Particularidades importantes de los enunciados
+## Particularidades de los problemas
 
-**UVa 10104:**
-- Leer pares de enteros `A B` hasta el final del archivo (EOF).
-- Para cada línea, imprimir `X Y D` cumpliendo `A*X + B*Y = D` con `D = mcd(A,B)`.
-- La especificación pide minimizar `|X|+|Y|`; en caso de empate, elegir de acuerdo con la condición `X <= Y` del enunciado.
-- Las pruebas locales usan `diff` (comparación exacta). Si tu respuesta difiere, revisa también si satisface todas las condiciones antes de concluir que el algoritmo está mal.
+**UVa 10104 — Euclid Problem**
 
-**SPOJ PRIME1:**
-- La primera línea contiene `t`, la cantidad de casos (t <= 10).
-- Cada caso define un intervalo inclusivo `[m,n]`, con `1 <= m <= n <= 10^9` y `n-m <= 100000`.
-- Mostrar un primo por línea y **una línea vacía entre casos** (no antes del primer caso).
-- Prestar atención a los intervalos sin primos y al valor `1`.
-- La comparación local es textual: una línea extra al final puede diferir aunque el juez acepte la presentación.
+- Leer pares de enteros `A B` hasta llegar al fin del archivo (EOF).
+- Para cada par, imprimir `X Y D`, de modo que `A*X + B*Y = D` y `D = mcd(A,B)`.
+- Minimizar `|X| + |Y|`; en caso de empate, aplicar el criterio del enunciado.
+- La solución emplea el algoritmo extendido de Euclides para calcular los coeficientes de Bézout y seleccionar el par adecuado.
+
+**SPOJ PRIME1 — Prime Generator**
+
+- La primera línea indica la cantidad de casos `t` (`t <= 10`).
+- Cada caso especifica un intervalo inclusivo `[m, n]`, con `1 <= m <= n <= 10^9` y `n - m <= 100000`.
+- Imprimir un primo por línea, con una línea vacía **entre casos**.
+- Tener en cuenta que `1` no es primo y que puede haber intervalos sin números primos.
