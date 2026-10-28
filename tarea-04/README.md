@@ -15,9 +15,7 @@
 ### Envíos y pruebas
 
 - **UVa 10104:** enviado mediante [VJudge](https://vjudge.net/problem/UVA-10104) ante dificultades para iniciar sesión en UVa Online Judge. **Envío #73799674 — Accepted (50 ms)**, 28 de octubre de 2026. Pruebas locales: **3/3** correctas.
-- **SPOJ PRIME1:** [Prime Generator](https://www.spoj.com/problems/PRIME1/). **Envío #36048257 — Accepted (0.02 s, 5.2 MB)**, 28 de octubre de 2026. Incluye cinco pares de archivos de prueba locales.
-
-> **Nota sobre la consigna:** el profesor indicó que la Tarea 4 debía resolverse sin utilizar IA y que las soluciones debían poder explicarse y justificarse.
+- **SPOJ PRIME1:** [Prime Generator](https://www.spoj.com/problems/PRIME1/). **Envío #36048257 — Accepted (0.02 s, 5.2 MB)**, 28 de octubre de 2026. Incluye cinco pares de archivos de prueba locales. Pruebas locales: **5/5** correctas.
 
 ## Estructura
 
