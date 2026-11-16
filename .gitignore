@@ -4,3 +4,4 @@ tarea-03/build/
 *.exe
 .vscode/*.log
 .DS_Store
+practicas/

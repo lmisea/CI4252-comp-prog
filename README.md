@@ -12,6 +12,7 @@ Repositorio para organizar los ejercicios de la electiva, documentar las estrate
 | [Tarea 2](tarea-02/README.md) | ✅ 4/4 aceptados en Codeforces    | [1230B](https://codeforces.com/contest/1230/problem/B) · [985C](https://codeforces.com/contest/985/problem/C) · [492C](https://codeforces.com/contest/492/problem/C) · [101A](https://codeforces.com/contest/101/problem/A) |
 | [Tarea 3](tarea-03/README.md) | ✅ 3/3 enfoques aceptados en SPOJ | [ANARC09A — Seinfeld](https://www.spoj.com/problems/ANARC09A/): Greedy, DP Bottom-Up y DP Top-Down                                                                                                                          |
 | [Tarea 4](tarea-04/README.md) | ✅ 2/2 aceptados                  | [UVa 10104 — Euclid Problem](https://vjudge.net/problem/UVA-10104) (VJudge) · [PRIME1 — Prime Generator](https://www.spoj.com/problems/PRIME1/) (SPOJ)                                                                      |
+| [Tarea 5](tarea-05/README.md) | ✅ 1/1 aceptado en SPOJ           | [POLYMUL — Polynomial Multiplication](https://www.spoj.com/problems/POLYMUL/) (SPOJ), usando FFT                                                                                                                            |
 
 ## Estructura del repositorio
 
@@ -36,17 +37,22 @@ CI4252-comp-prog/
 │   ├── top_down.cpp
 │   ├── greedy.cpp
 │   └── tests/ (01.in, 01.out, ...)
-└── tarea-04/
+├── tarea-04/
+│   ├── README.md
+│   ├── problema-01/
+│   │   ├── main.cpp
+│   │   └── tests/ (01.in, 01.out, ...)
+│   └── problema-02/
+│       ├── main.cpp
+│       └── tests/ (01.in, 01.out, ...)
+└── tarea-05/
     ├── README.md
-    ├── problema-01/
-    │   ├── main.cpp
-    │   └── tests/ (01.in, 01.out, ...)
-    └── problema-02/
+    └── problema-01/
         ├── main.cpp
-        └── tests/ (01.in, 01.out, ...)
+        └── tests/ (01.in, 01.out, ... hasta 15)
 ```
 
-En las **Tareas 2 y 4**, cada carpeta `problema-XX/` contiene su solución en `main.cpp` y casos de prueba en `tests/`. Los pares `01.in`/`01.out`, `02.in`/`02.out`, etc. representan entradas y salidas esperadas.
+En las **Tareas 2, 4 y 5**, cada carpeta `problema-XX/` contiene su solución en `main.cpp` y casos de prueba en `tests/`. Los pares `01.in`/`01.out`, `02.in`/`02.out`, etc. representan entradas y salidas esperadas.
 
 En la **Tarea 3**, el mismo problema se resuelve con tres enfoques independientes. Los programas comparten `tarea-03/tests/` y se compilan con un Makefile propio.
 
@@ -58,7 +64,7 @@ En la **Tarea 3**, el mismo problema se resuelve con tres enfoques independiente
 sudo pacman -S --needed gcc make git unzip
 ```
 
-## Compilar y probar — Tareas 2 y 4
+## Compilar y probar — Tareas 2, 4 y 5
 
 Ejecutar desde la raíz del repositorio, cambiando `P` por la ruta del problema:
 
@@ -76,6 +82,11 @@ make test  P=tarea-04/problema-01
 make build P=tarea-04/problema-02
 make test  P=tarea-04/problema-02
 
+# Tarea 5 (SPOJ POLYMUL, solución FFT aceptada)
+make build P=tarea-05/problema-01
+make test  P=tarea-05/problema-01
+make run  P=tarea-05/problema-01
+
 # Limpiar ejecutables del Makefile principal
 make clean
 ```
@@ -85,6 +96,7 @@ Para ejecutar manualmente un caso concreto, después de compilar:
 ```bash
 ./build/tarea-04_problema-01 < tarea-04/problema-01/tests/01.in
 ./build/tarea-04_problema-02 < tarea-04/problema-02/tests/01.in
+./build/tarea-05_problema-01 < tarea-05/problema-01/tests/01.in
 ```
 
 ## Compilar y probar — Tarea 3
@@ -111,4 +123,6 @@ También puedes sustituir `greedy` por `bottom_up` o `top_down`.
 
 Las pruebas comparan las salidas con los archivos `.out` correspondientes. Los espacios y saltos de línea pueden influir en la comparación. Algunos problemas admiten varias salidas válidas; en esos casos, la comparación textual no sustituye al veredicto del juez.
 
-Cada solución incluye comentarios sobre su idea, justificación y complejidad. Los detalles y enlaces de los envíos aceptados están en el README de cada tarea.
+Cada solución terminada incluye comentarios sobre su idea, justificación y complejidad. Los detalles y enlaces de los envíos aceptados están en el README de cada tarea.
+
+La **Tarea 5** utiliza una FFT recursiva para multiplicar polinomios en `O(n log n)`. Superó **15/15 pruebas locales** y obtuvo **Accepted en SPOJ** el 16 de noviembre de 2026 (envío [`36088012`](https://www.spoj.com/status/POLYMUL,lmisea/): 0.25 s, 3.3 MB).
